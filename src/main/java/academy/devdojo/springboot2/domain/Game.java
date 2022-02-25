@@ -1,13 +1,13 @@
 package academy.devdojo.springboot2.domain;
 
-public class Anime {
+public class Game {
     private String name;
 
-    public Anime(String name) {
+    public Game(String name) {
         this.name = name;
     }
 
-    public Anime() {
+    public Game() {
     }
 
     public String getName() {
