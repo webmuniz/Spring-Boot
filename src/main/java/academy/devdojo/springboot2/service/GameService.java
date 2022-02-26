@@ -15,7 +15,10 @@ public class GameService {
     private static final List<Game> games;
 
     static {
-        games = new ArrayList<>(List.of(new Game(1L, "Red Dead Redemption II"), new Game(2L, "The Witcher III")));
+        games = new ArrayList<>(List.of(
+                new Game(1L, "Red Dead Redemption II"),
+                new Game(2L, "The Witcher III")
+        ));
     }
 
     public List<Game> listAll() {
