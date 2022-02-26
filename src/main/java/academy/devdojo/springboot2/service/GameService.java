@@ -38,4 +38,9 @@ public class GameService {
     public void delete(long id) {
         games.remove(findById(id));
     }
+
+    public void replace(Game game) {
+        delete(game.getId());
+        games.add(game);
+    }
 }
