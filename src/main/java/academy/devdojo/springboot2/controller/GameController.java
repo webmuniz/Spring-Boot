@@ -40,4 +40,10 @@ public class GameController {
     public ResponseEntity<Game> save(@RequestBody Game game) {
         return new ResponseEntity<>(gameService.save(game), HttpStatus.CREATED);
     }
+
+    @DeleteMapping(path = "/{id}")
+    public ResponseEntity<Void> delete(@PathVariable long id) {
+        gameService.delete(id);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
 }

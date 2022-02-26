@@ -34,4 +34,8 @@ public class GameService {
         games.add(game);
         return game;
     }
+
+    public void delete(long id) {
+        games.remove(findById(id));
+    }
 }
