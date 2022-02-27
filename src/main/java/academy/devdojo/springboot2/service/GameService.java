@@ -21,6 +21,10 @@ public class GameService {
         return gameRepository.findAll();
     }
 
+    public List<Game> findByname(String name) {
+        return gameRepository.findByName(name);
+    }
+
     public Game findByIdOrThrowBadRequestException(long id) {
         return gameRepository.findById(id)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.BAD_REQUEST, "Game not found :("));
