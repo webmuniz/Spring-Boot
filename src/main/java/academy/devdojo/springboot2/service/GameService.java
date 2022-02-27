@@ -1,6 +1,7 @@
 package academy.devdojo.springboot2.service;
 
 import academy.devdojo.springboot2.domain.Game;
+import academy.devdojo.springboot2.mapper.GameMapper;
 import academy.devdojo.springboot2.repository.GameRepository;
 import academy.devdojo.springboot2.requests.GamePostRequestBody;
 import academy.devdojo.springboot2.requests.GamePutRequestBody;
@@ -27,8 +28,10 @@ public class GameService {
     }
 
     public Game save(GamePostRequestBody gamePostRequestBody) {
-        Game game = Game.builder().name(gamePostRequestBody.getName()).build();
-        return gameRepository.save(game);
+//        Game game = Game.builder().name(gamePostRequestBody.getName()).build();
+//        return gameRepository.save(game);
+        //With Map Structure plugin:
+        return gameRepository.save(GameMapper.INSTANCE.toGame(gamePostRequestBody));
     }
 
     public void delete(long id) {
@@ -36,11 +39,14 @@ public class GameService {
     }
 
     public void replace(GamePutRequestBody gamePutRequestBody) {
-        final Game savedGame = findByIdOrThrowBadRequestException(gamePutRequestBody.getId());
-        Game game = Game.builder()
-                .id(savedGame.getId())
-                .name(gamePutRequestBody.getName())
-                .build();
+        Game savedGame = findByIdOrThrowBadRequestException(gamePutRequestBody.getId());
+//        Game game = Game.builder()
+//                .id(savedGame.getId())
+//                .name(gamePutRequestBody.getName())
+//                .build();
+        //With Map Structure plugin:
+        Game game = GameMapper.INSTANCE.toGame(gamePutRequestBody);
+        game.setId(savedGame.getId());
         gameRepository.save(game);
     }
 }
