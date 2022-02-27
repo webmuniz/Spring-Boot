@@ -1,6 +1,7 @@
 package academy.devdojo.springboot2.service;
 
 import academy.devdojo.springboot2.domain.Game;
+import academy.devdojo.springboot2.exceptions.BadRequestException;
 import academy.devdojo.springboot2.mapper.GameMapper;
 import academy.devdojo.springboot2.repository.GameRepository;
 import academy.devdojo.springboot2.requests.GamePostRequestBody;
@@ -27,7 +28,7 @@ public class GameService {
 
     public Game findByIdOrThrowBadRequestException(long id) {
         return gameRepository.findById(id)
-                .orElseThrow(() -> new ResponseStatusException(HttpStatus.BAD_REQUEST, "Game not found :("));
+                .orElseThrow(() -> new BadRequestException("Game not found"));
 
     }
 
