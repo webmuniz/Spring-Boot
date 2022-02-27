@@ -7,10 +7,9 @@ import academy.devdojo.springboot2.repository.GameRepository;
 import academy.devdojo.springboot2.requests.GamePostRequestBody;
 import academy.devdojo.springboot2.requests.GamePutRequestBody;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
-import org.springframework.web.server.ResponseStatusException;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 @Service
@@ -32,9 +31,12 @@ public class GameService {
 
     }
 
+    //Only commit if the request is complete | Not rollback to Exceptions checked -> (rollbackOn = Exception.class)
+    @Transactional(rollbackOn = Exception.class)
     public Game save(GamePostRequestBody gamePostRequestBody) {
 //        Game game = Game.builder().name(gamePostRequestBody.getName()).build();
 //        return gameRepository.save(game);
+
         //With Map Structure plugin:
         return gameRepository.save(GameMapper.INSTANCE.toGame(gamePostRequestBody));
     }
