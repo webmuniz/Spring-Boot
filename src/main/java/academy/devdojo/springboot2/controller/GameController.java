@@ -37,6 +37,11 @@ public class GameController {
         return ResponseEntity.ok(gameService.findByIdOrThrowBadRequestException(id));
     }
 
+    @GetMapping(path = "/find")
+    public ResponseEntity<List<Game>> findByName(@RequestParam(required = false) String name) {
+        return ResponseEntity.ok(gameService.findByname(name));
+    }
+
     @PostMapping
     //@ResponseStatus(HttpStatus.CREATED)
     public ResponseEntity<Game> save(@RequestBody GamePostRequestBody gamePostRequestBody) {
