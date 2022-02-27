@@ -1,6 +1,8 @@
 package academy.devdojo.springboot2.controller;
 
 import academy.devdojo.springboot2.domain.Game;
+import academy.devdojo.springboot2.requests.GamePostRequestBody;
+import academy.devdojo.springboot2.requests.GamePutRequestBody;
 import academy.devdojo.springboot2.service.GameService;
 import academy.devdojo.springboot2.util.DateUtil;
 import lombok.RequiredArgsConstructor;
@@ -32,13 +34,13 @@ public class GameController {
 
     @GetMapping(path = "/{id}")
     public ResponseEntity<Game> findById(@PathVariable long id) {
-        return ResponseEntity.ok(gameService.findById(id));
+        return ResponseEntity.ok(gameService.findByIdOrThrowBadRequestException(id));
     }
 
     @PostMapping
     //@ResponseStatus(HttpStatus.CREATED)
-    public ResponseEntity<Game> save(@RequestBody Game game) {
-        return new ResponseEntity<>(gameService.save(game), HttpStatus.CREATED);
+    public ResponseEntity<Game> save(@RequestBody GamePostRequestBody gamePostRequestBody) {
+        return new ResponseEntity<>(gameService.save(gamePostRequestBody), HttpStatus.CREATED);
     }
 
     @DeleteMapping(path = "/{id}")
@@ -48,8 +50,8 @@ public class GameController {
     }
 
     @PutMapping
-    public ResponseEntity<Void> replace(@RequestBody Game game) {
-        gameService.replace(game);
+    public ResponseEntity<Void> replace(@RequestBody GamePutRequestBody gamePutRequestBody) {
+        gameService.replace(gamePutRequestBody);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 }
