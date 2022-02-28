@@ -7,6 +7,8 @@ import academy.devdojo.springboot2.repository.GameRepository;
 import academy.devdojo.springboot2.requests.GamePostRequestBody;
 import academy.devdojo.springboot2.requests.GamePutRequestBody;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -17,8 +19,8 @@ import java.util.List;
 public class GameService {
     private final GameRepository gameRepository;
 
-    public List<Game> listAll() {
-        return gameRepository.findAll();
+    public Page<Game> listAll(Pageable pageable) {
+        return gameRepository.findAll(pageable);
     }
 
     public List<Game> findByname(String name) {

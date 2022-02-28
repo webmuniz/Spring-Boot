@@ -8,6 +8,8 @@ import academy.devdojo.springboot2.util.DateUtil;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -27,10 +29,10 @@ public class GameController {
     private final GameService gameService;
 
     @GetMapping
-    public ResponseEntity<List<Game>> list() {
+    public ResponseEntity<Page<Game>> list(Pageable pageable) {
         log.info(dateUtil.formatLocalDateTimeToDataBaseStyle(LocalDateTime.now()));
         //return new ResponseEntity<>(gameService.listAll(), HttpStatus.OK);
-        return ResponseEntity.ok(gameService.listAll());
+        return ResponseEntity.ok(gameService.listAll(pageable));
     }
 
     @GetMapping(path = "/{id}")
