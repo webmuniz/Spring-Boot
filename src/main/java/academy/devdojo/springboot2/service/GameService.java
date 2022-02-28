@@ -28,7 +28,6 @@ public class GameService {
     public Game findByIdOrThrowBadRequestException(long id) {
         return gameRepository.findById(id)
                 .orElseThrow(() -> new BadRequestException("Game not found"));
-
     }
 
     //Only commit if the request is complete | Not rollback to Exceptions checked -> (rollbackOn = Exception.class)
@@ -36,7 +35,6 @@ public class GameService {
     public Game save(GamePostRequestBody gamePostRequestBody) {
 //        Game game = Game.builder().name(gamePostRequestBody.getName()).build();
 //        return gameRepository.save(game);
-
         //With Map Structure plugin:
         return gameRepository.save(GameMapper.INSTANCE.toGame(gamePostRequestBody));
     }
