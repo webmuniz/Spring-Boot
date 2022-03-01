@@ -35,6 +35,12 @@ public class GameController {
         return ResponseEntity.ok(gameService.listAll(pageable));
     }
 
+    @GetMapping(path = "/all")
+    public ResponseEntity<List<Game>> listAll() {
+        log.info(dateUtil.formatLocalDateTimeToDataBaseStyle(LocalDateTime.now()));
+        return ResponseEntity.ok(gameService.listAllNonPageable());
+    }
+
     @GetMapping(path = "/{id}")
     public ResponseEntity<Game> findById(@PathVariable long id) {
         return ResponseEntity.ok(gameService.findByIdOrThrowBadRequestException(id));

@@ -23,6 +23,10 @@ public class GameService {
         return gameRepository.findAll(pageable);
     }
 
+    public List<Game> listAllNonPageable() {
+        return gameRepository.findAll();
+    }
+
     public List<Game> findByname(String name) {
         return gameRepository.findByName(name);
     }
@@ -31,8 +35,8 @@ public class GameService {
         return gameRepository.findById(id)
                 .orElseThrow(() -> new BadRequestException("Game not found"));
     }
-
     //Only commit if the request is complete | Not rollback to Exceptions checked -> (rollbackOn = Exception.class)
+
     @Transactional(rollbackOn = Exception.class)
     public Game save(GamePostRequestBody gamePostRequestBody) {
 //        Game game = Game.builder().name(gamePostRequestBody.getName()).build();
