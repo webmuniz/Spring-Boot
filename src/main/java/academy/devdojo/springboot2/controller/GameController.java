@@ -15,7 +15,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.time.LocalDateTime;
 import java.util.List;
 
 @RestController
@@ -30,14 +29,12 @@ public class GameController {
 
     @GetMapping
     public ResponseEntity<Page<Game>> list(Pageable pageable) {
-        log.info(dateUtil.formatLocalDateTimeToDataBaseStyle(LocalDateTime.now()));
         //return new ResponseEntity<>(gameService.listAll(), HttpStatus.OK);
         return ResponseEntity.ok(gameService.listAll(pageable));
     }
 
     @GetMapping(path = "/all")
     public ResponseEntity<List<Game>> listAll() {
-        log.info(dateUtil.formatLocalDateTimeToDataBaseStyle(LocalDateTime.now()));
         return ResponseEntity.ok(gameService.listAllNonPageable());
     }
 
