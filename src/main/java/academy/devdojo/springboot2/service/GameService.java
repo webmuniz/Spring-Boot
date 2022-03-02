@@ -17,6 +17,7 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 public class GameService {
+
     private final GameRepository gameRepository;
 
     public Page<Game> listAll(Pageable pageable) {
@@ -27,7 +28,7 @@ public class GameService {
         return gameRepository.findAll();
     }
 
-    public List<Game> findByname(String name) {
+    public List<Game> findByName(String name) {
         return gameRepository.findByName(name);
     }
 

@@ -45,7 +45,7 @@ public class GameController {
 
     @GetMapping(path = "/find")
     public ResponseEntity<List<Game>> findByName(@RequestParam(required = false) String name) {
-        return ResponseEntity.ok(gameService.findByname(name));
+        return ResponseEntity.ok(gameService.findByName(name));
     }
 
     @PostMapping
