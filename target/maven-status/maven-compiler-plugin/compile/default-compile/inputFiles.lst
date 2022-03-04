@@ -1,0 +1,17 @@
+C:\#SpringBoot-essentials\Spring-Boot\src\main\java\academy\devdojo\springboot2\requests\GamePostRequestBody.java
+C:\#SpringBoot-essentials\Spring-Boot\src\main\java\academy\devdojo\springboot2\requests\GamePutRequestBody.java
+C:\#SpringBoot-essentials\Spring-Boot\src\main\java\academy\devdojo\springboot2\client\SpringClient.java
+C:\#SpringBoot-essentials\Spring-Boot\src\main\java\academy\devdojo\springboot2\exceptions\ValidationExceptionDetails.java
+C:\#SpringBoot-essentials\Spring-Boot\src\main\java\academy\devdojo\springboot2\controller\GameController.java
+C:\#SpringBoot-essentials\Spring-Boot\src\main\java\academy\devdojo\springboot2\Application.java
+C:\#SpringBoot-essentials\Spring-Boot\src\main\java\academy\devdojo\springboot2\domain\Game.java
+C:\#SpringBoot-essentials\Spring-Boot\src\main\java\academy\devdojo\springboot2\exceptions\BadRequestException.java
+C:\#SpringBoot-essentials\Spring-Boot\src\main\java\academy\devdojo\springboot2\handler\RestExceptionHandler.java
+C:\#SpringBoot-essentials\Spring-Boot\src\main\java\academy\devdojo\springboot2\exceptions\BadRequestExceptionDetails.java
+C:\#SpringBoot-essentials\Spring-Boot\src\main\java\academy\devdojo\springboot2\exceptions\ExceptionDetails.java
+C:\#SpringBoot-essentials\Spring-Boot\src\main\java\academy\devdojo\springboot2\service\GameService.java
+C:\#SpringBoot-essentials\Spring-Boot\src\main\java\academy\devdojo\springboot2\configurer\DevDojoWebMvcConfigurer.java
+C:\#SpringBoot-essentials\Spring-Boot\src\main\java\academy\devdojo\springboot2\repository\GameRepository.java
+C:\#SpringBoot-essentials\Spring-Boot\src\main\java\academy\devdojo\springboot2\mapper\GameMapper.java
+C:\#SpringBoot-essentials\Spring-Boot\src\main\java\academy\devdojo\springboot2\util\DateUtil.java
+C:\#SpringBoot-essentials\Spring-Boot\src\main\java\academy\devdojo\springboot2\wrapper\PageableResponse.java
